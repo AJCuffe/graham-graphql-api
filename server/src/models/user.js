@@ -62,6 +62,7 @@ const user = (sequelize, DataTypes) => {
   };
 
   User.beforeCreate(async userObject => {
+    // eslint-disable-next-line no-param-reassign
     userObject.password = await userObject.generatePasswordHash();
   });
 

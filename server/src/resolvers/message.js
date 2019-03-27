@@ -37,9 +37,8 @@ export default {
         },
       };
     },
-    message: async (parent, { id }, { models }) => {
-      return await models.Message.findOne({ where: { id } });
-    },
+    message: async (parent, { id }, { models }) =>
+      await models.Message.findOne({ where: { id } }),
   },
   Mutation: {
     createMessage: combineResolvers(
@@ -59,15 +58,13 @@ export default {
     deleteMessage: combineResolvers(
       isAuthenticated,
       isMessageOwner,
-      async (parent, { id }, { models }) => {
-        return await models.Message.destroy({ where: { id } });
-      },
+      async (parent, { id }, { models }) =>
+        await models.Message.destroy({ where: { id } }),
     ),
   },
   Message: {
-    user: async (message, args, { models, loaders }) => {
-      return await loaders.user.load(message.userId);
-    },
+    user: async (message, args, { loaders }) =>
+      await loaders.user.load(message.userId),
   },
   Subscription: {
     messageCreated: {

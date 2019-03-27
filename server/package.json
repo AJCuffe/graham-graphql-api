@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "test-server": "TEST_DATABASE=mytestdatabase npm start",
-    "test": "mocha --require @babel/register 'src/**/*.spec.js'"
+    "test": "mocha --require @babel/register 'src/**/*.spec.js'",
+    "pretty-quick": "pretty-quick"
   },
   "keywords": [],
   "author": "Adam Cuffe <adamcuffe27@icloud.com>",
@@ -23,7 +24,9 @@
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
     "mocha": "^6.0.2",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0"
   },
   "dependencies": {
     "apollo-server": "^2.4.8",

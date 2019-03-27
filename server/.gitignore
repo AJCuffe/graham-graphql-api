@@ -1,0 +1,11 @@
+logfile
+
+.env
+
+node_modules/
+
+.prettierrc
+
+.eslintrc
+
+.eslintrc.json

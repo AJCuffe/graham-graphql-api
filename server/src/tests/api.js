@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-import axios from 'axios'
+import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/graphql'
+const API_URL = 'http://localhost:8000/graphql';
 
 export const user = async variables =>
   axios.post(API_URL, {
@@ -15,8 +15,8 @@ export const user = async variables =>
         }
       }
     `,
-    variables
-  })
+    variables,
+  });
 
 export const signIn = async variables =>
   await axios.post(API_URL, {
@@ -27,8 +27,8 @@ export const signIn = async variables =>
         }
       }
     `,
-    variables
-  })
+    variables,
+  });
 
 export const deleteUser = async (variables, token) =>
   axios.post(
@@ -39,11 +39,11 @@ export const deleteUser = async (variables, token) =>
           deleteUser(id: $id)
         }
       `,
-      variables
+      variables,
     },
     {
       headers: {
-        'x-token': token
-      }
-    }
-  )
+        'x-token': token,
+      },
+    },
+  );

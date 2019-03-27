@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-import {expect} from 'chai'
-import * as userApi from './api'
+import { expect } from 'chai';
+import * as userApi from './api';
 
 describe('users', () => {
   describe('user(id: String!): User', () => {
@@ -11,46 +11,46 @@ describe('users', () => {
             id: '1',
             username: 'AJCuffe',
             email: 'adamcuffe27@icloud.com',
-            role: 'ADMIN'
-          }
-        }
-      }
+            role: 'ADMIN',
+          },
+        },
+      };
 
-      const result = await userApi.user({id: '1'})
-      expect(result.data).to.eql(expectedResult)
-    })
+      const result = await userApi.user({ id: '1' });
+      expect(result.data).to.eql(expectedResult);
+    });
 
     it('returns null when user cannot be found', async () => {
       const expectedResult = {
         data: {
-          user: null
-        }
-      }
+          user: null,
+        },
+      };
 
-      const result = await userApi.user({id: '42'})
+      const result = await userApi.user({ id: '42' });
 
-      expect(result.data).to.eql(expectedResult)
-    })
-  })
-})
+      expect(result.data).to.eql(expectedResult);
+    });
+  });
+});
 
 describe('deleteUser(id: String!): Boolean!', () => {
   it('returns an error because only admins can delete a user', async () => {
     const {
       data: {
         data: {
-          signIn: {token}
-        }
-      }
+          signIn: { token },
+        },
+      },
     } = await userApi.signIn({
       login: 'ddavids',
-      password: 'ddavids'
-    })
+      password: 'ddavids',
+    });
 
     const {
-      data: {errors}
-    } = await userApi.deleteUser({id: '1'}, token)
+      data: { errors },
+    } = await userApi.deleteUser({ id: '1' }, token);
 
-    expect(errors[0].message).to.eql('Not authorised as admin.')
-  })
-})
+    expect(errors[0].message).to.eql('Not authorised as admin.');
+  });
+});

@@ -1,0 +1,45 @@
+{
+  "name": "graham-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test-server": "TEST_DATABASE=mytestdatabase npm start",
+    "test": "mocha --require @babel/register 'src/**/*.spec.js'"
+  },
+  "keywords": [],
+  "author": "Adam Cuffe <adamcuffe27@icloud.com>",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/register": "^7.4.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "apollo-server": "^2.4.8",
+    "apollo-server-express": "^2.4.8",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.5",
+    "cors": "^2.8.5",
+    "dataloader": "^1.4.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-resolvers": "^0.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.9.0",
+    "sequelize": "^5.2.0",
+    "uuid": "^3.3.2"
+  }
+}

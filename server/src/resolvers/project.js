@@ -3,6 +3,12 @@ import { UserInputError } from 'apollo-server';
 import upperCaseFirst from 'upper-case-first';
 import { isAuthenticated, isAdmin } from './authorization';
 
+// ====== CREATE =====
+
+// Create a new project
+
+// ======= READ =======
+
 // Return list of all projects
 // Return list of all Projects by Scheme ID
 // Return list of all Projects by Scheme Code (QK17, QL17 etc.)
@@ -16,16 +22,21 @@ import { isAuthenticated, isAdmin } from './authorization';
 // Return list of all inactive projects by their Scheme code
 // Return list of all projects created by a certain user ID
 
-// Create a new project
+// ====== UPDATE ======
 
 // Update a project by its ID
 // Update a project by its Pin number
-
 // Set a project to inactive
 // Set a project to active
 
+// ====== DELETE ======
+
 // Delete a project by its ID
 // Delete a project by its Pin number
+
+// ***********************************************************
+// **       HELPER FUNCTION FOR UPDATE AND DELETE
+// ***********************************************************
 
 async function checkProjectAndSchemeExist(whereCriteria, { models }, args) {
   const project = await models.Project.findOne({
@@ -52,6 +63,10 @@ async function checkProjectAndSchemeExist(whereCriteria, { models }, args) {
 
   return true;
 }
+
+// ***********************************************************
+// **         DELETE PROJECT BY BOTH PIN AND ID
+// ***********************************************************
 
 async function deleteProject(criteriaObject, { models }) {
   const whereCriteria = {};

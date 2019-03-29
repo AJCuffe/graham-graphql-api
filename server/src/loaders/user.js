@@ -8,5 +8,6 @@ export const batchUsers = async (keys, models) => {
     },
   });
 
-  return keys.map(key => users.find(user => user.id === key));
+  const usersReturned = keys.map(key => users.find(user => user.id === key));
+  return usersReturned;
 };

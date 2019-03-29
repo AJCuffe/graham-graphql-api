@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import * as userApi from './api';
 
 describe('users', () => {
-  describe('user(id: String!): User', () => {
+  describe('user(id: ID!): User', () => {
     it('returns a user when user can be found', async () => {
       const expectedResult = {
         data: {
@@ -34,7 +34,7 @@ describe('users', () => {
   });
 });
 
-describe('deleteUser(id: String!): Boolean!', () => {
+describe('deleteUser(id: ID!): Boolean!', () => {
   it('returns an error because only admins can delete a user', async () => {
     const {
       data: {

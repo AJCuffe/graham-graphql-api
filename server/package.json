@@ -40,9 +40,11 @@
     "graphql": "^14.1.1",
     "graphql-iso-date": "^3.6.1",
     "graphql-resolvers": "^0.3.2",
+    "helmet": "^3.16.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.9.0",
     "sequelize": "^5.2.0",
+    "upper-case-first": "^1.1.2",
     "uuid": "^3.3.2"
   }
 }

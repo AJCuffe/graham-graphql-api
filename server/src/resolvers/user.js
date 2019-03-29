@@ -31,7 +31,11 @@ export default {
       return await models.User.findOne({ where: { id: me.id } });
     },
   },
+
   Mutation: {
+    /** ***********************************************************
+     * Register a new user
+     ** ********************************************************* */
     signUp: async (
       parent,
       { username, email, password },
@@ -45,6 +49,11 @@ export default {
 
       return { token: createToken(user, secret, '30m') };
     },
+
+    /** ***********************************************************
+     * Sign in a user
+     ** ********************************************************* */
+
     signIn: async (parent, { login, password }, { models, secret }) => {
       const user = await models.User.findByLogin(login);
       if (!user) {
@@ -61,6 +70,11 @@ export default {
 
       return { token: createToken(user, secret, '30m') };
     },
+
+    /** ***********************************************************
+     * Delete a user if user is authenticated and is an admin
+     ** ********************************************************* */
+
     deleteUser: combineResolvers(
       isAuthenticated,
       isAdmin,
@@ -70,6 +84,7 @@ export default {
         }),
     ),
   },
+
   User: {
     messages: async (user, args, { models }) =>
       await models.Message.findAll({

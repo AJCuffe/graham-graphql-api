@@ -18,6 +18,28 @@ export const user = async variables =>
     variables,
   });
 
+export const projectById = async (variables, token) =>
+  axios.post(
+    API_URL,
+    {
+      query: `
+      query ($id: ID!) {
+        projectById(id: $id) {
+          pin
+          name
+          active
+        }
+      }
+    `,
+      variables,
+    },
+    {
+      headers: {
+        'x-token': token,
+      },
+    },
+  );
+
 export const signIn = async variables =>
   await axios.post(API_URL, {
     query: `

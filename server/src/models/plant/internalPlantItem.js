@@ -45,6 +45,12 @@ const internalPlantItem = (sequelize, DataTypes) => {
       internalPlantObject.openMarketRate - internalPlantObject.internalRate;
   });
 
+  InternalPlantItem.beforeUpdate(async internalPlantObject => {
+    // eslint-disable-next-line no-param-reassign
+    internalPlantObject.difference =
+      internalPlantObject.openMarketRate - internalPlantObject.internalRate;
+  });
+
   return InternalPlantItem;
 };
 

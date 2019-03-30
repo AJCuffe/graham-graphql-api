@@ -86,5 +86,11 @@ export default {
           id: internalPlantCategory.userId,
         },
       }),
+    internalPlantItems: async (internalPlantCategory, args, { models }) =>
+      await models.InternalPlantItem.findAll({
+        where: {
+          internalPlantCategoryId: internalPlantCategory.id,
+        },
+      }),
   },
 };

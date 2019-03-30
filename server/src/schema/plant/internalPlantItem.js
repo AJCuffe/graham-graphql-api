@@ -3,6 +3,8 @@ import { gql } from 'apollo-server-express';
 export default gql`
   extend type Query {
     internalPlant: [InternalPlantItem!]
+    internalPlantById(id: ID!): InternalPlantItem!
+    internalPlantByCode(code: String!): InternalPlantItem!
   }
   extend type Mutation {
     createInternalPlantItem(
@@ -14,6 +16,23 @@ export default gql`
       difference: Float
       comment: String
     ): InternalPlantItem!
+    updateInternalPlantItemById(
+      id: ID!
+      code: String
+      name: String
+      internalRate: Float
+      openMarketRate: Float
+      comment: String
+    ): InternalPlantItem!
+    updateInternalPlantItemByCode(
+      code: String!
+      name: String
+      internalRate: Float
+      openMarketRate: Float
+      comment: String
+    ): InternalPlantItem!
+    deleteInternalPlantItemById(id: ID!): Boolean!
+    deleteInternalPlantItemByCode(code: String!): Boolean!
   }
   type InternalPlantItem {
     category: InternalPlantCategory!

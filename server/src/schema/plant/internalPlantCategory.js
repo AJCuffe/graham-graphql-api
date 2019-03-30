@@ -12,6 +12,7 @@ export default gql`
   }
   type InternalPlantCategory {
     name: String!
+    internalPlantItems: [InternalPlantItem!]
     createdAt: Date!
     updatedAt: Date!
     createdBy: User!

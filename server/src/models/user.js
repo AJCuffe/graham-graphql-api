@@ -36,6 +36,8 @@ const user = (sequelize, DataTypes) => {
     User.hasMany(models.Message, { onDelete: 'CASCADE' });
     User.hasMany(models.Scheme);
     User.hasMany(models.Project);
+    User.hasMany(models.InternalPlantItem);
+    User.hasMany(models.InternalPlantCategory);
   };
 
   User.findByLogin = async login => {

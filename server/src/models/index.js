@@ -26,6 +26,8 @@ const models = {
   Message: sequelize.import('./message'),
   Scheme: sequelize.import('./scheme'),
   Project: sequelize.import('./project'),
+  InternalPlantItem: sequelize.import('./plant/internalPlantItem'),
+  InternalPlantCategory: sequelize.import('./plant/internalPlantCategory'),
 };
 
 Object.keys(models).forEach(key => {
